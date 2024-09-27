@@ -1,3 +1,5 @@
+// import 'dart:html';
+
 import 'package:daily_planner/model/task_model.dart';
 import 'package:daily_planner/provider/const.dart';
 import 'package:daily_planner/screen/task/task_function/edit_task.dart';
@@ -65,7 +67,7 @@ class _TaskDetailState extends State<TaskDetail> {
               ),
               Text(
                 year.toString(),
-                style: Theme.of(context).textTheme.titleLarge,
+                style: styleSmallForText,
               ),
               const SizedBox(
                 height: 30,
@@ -81,27 +83,35 @@ class _TaskDetailState extends State<TaskDetail> {
               const SizedBox(
                 height: 30,
               ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Text(
-                    '$dayStart/$monthStart',
-                    style: Theme.of(context).textTheme.titleLarge,
-                  ),
-                  const Icon(Icons.arrow_forward_sharp),
-                  Text(
-                    '$dayEnd/$monthEnd',
-                    style: Theme.of(context).textTheme.titleLarge,
-                  ),
-                ],
+              Container(
+                padding: EdgeInsets.all(16),
+                decoration: BoxDecoration(
+                    border: Border.all(width: 2, color: Colors.grey),
+                    borderRadius: BorderRadius.circular(20)),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Text(
+                      '$dayStart/$monthStart',
+                      style: styleSmallForText,
+                    ),
+                    const Icon(Icons.arrow_forward_sharp),
+                    Text(
+                      '$dayEnd/$monthEnd',
+                      style: styleSmallForText,
+                    ),
+                  ],
+                ),
               ),
               const SizedBox(
                 height: 30,
               ),
               Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
                   Column(
-                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Text(
                         'Place',

@@ -12,6 +12,12 @@ TextStyle styleSmall = const TextStyle(
     fontWeight: FontWeight.w700,
     color: Color.fromARGB(255, 13, 27, 221));
 
+TextStyle styleSmallForText = const TextStyle(
+    fontSize: 22,
+    fontWeight: FontWeight.w700,
+    color: Color.fromARGB(255, 23, 23, 28));
+
+
   // get formattedDay {
   //   return formatMatter.format(day);
   // }

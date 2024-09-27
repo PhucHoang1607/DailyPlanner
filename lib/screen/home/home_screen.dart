@@ -1,5 +1,5 @@
 import 'package:daily_planner/model/task_model.dart';
-import 'package:daily_planner/screen/task/chart/chart_task.dart';
+import 'package:daily_planner/widget/chart/chart_task.dart';
 import 'package:daily_planner/screen/task/task_list.dart';
 import 'package:flutter/material.dart';
 import 'package:daily_planner/utilities/dummy_data.dart';

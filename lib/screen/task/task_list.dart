@@ -15,26 +15,34 @@ class TaskList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ListView.builder(
-        itemCount: task.length,
-        itemBuilder: (ctx, index) {
-          return Dismissible(
-            key: ValueKey(task[index]),
-            background: Container(
-              color: Theme.of(context).colorScheme.error.withOpacity(0.5),
-              margin: EdgeInsets.symmetric(
-                horizontal: Theme.of(context).cardTheme.margin!.horizontal,
-              ),
-            ),
-            child: DisplayTaskComponent(
-              task[index],
-            ),
-            onDismissed: canDismissed
-                ? (direction) {
-                    onRemoveTask(taskData[index]);
-                  }
-                : null,
-          );
-        });
+    return canDismissed
+        ? ListView.builder(
+            itemCount: task.length,
+            itemBuilder: (ctx, index) {
+              return Dismissible(
+                key: ValueKey(task[index]),
+                background: Container(
+                  color: Theme.of(context).colorScheme.error.withOpacity(0.5),
+                  margin: EdgeInsets.symmetric(
+                    horizontal: Theme.of(context).cardTheme.margin!.horizontal,
+                  ),
+                ),
+                child: DisplayTaskComponent(
+                  task[index],
+                ),
+                onDismissed: (direction) {
+                  onRemoveTask(taskData[index]);
+                },
+              );
+            })
+        : ListView.builder(
+            itemCount: task.length,
+            itemBuilder: (ctx, index) {
+              return SingleChildScrollView(
+                child: DisplayTaskComponent(
+                  task[index],
+                ),
+              );
+            });
   }
 }
